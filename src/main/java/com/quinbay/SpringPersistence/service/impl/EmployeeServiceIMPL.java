@@ -26,7 +26,7 @@ public class EmployeeServiceIMPL implements EmployeeService {
     }
 
     @Override
-    public EmployeeResponseDTO getEmployeebyId(long id) {
+    public EmployeeResponseDTO getEmployeeById(long id) {
         Optional<Employee> optional = employeeRepository.findById(id);
         if(optional.isPresent()){
             EmployeeResponseDTO res = new EmployeeResponseDTO();
