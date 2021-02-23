@@ -8,6 +8,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class EmployeeServiceIMPL implements  EmployeeService{
     @Autowired
@@ -24,6 +26,40 @@ public class EmployeeServiceIMPL implements  EmployeeService{
 
     @Override
     public EmployeeResponseDTO getEmployeebyId(long id) {
+        Optional<Employee> optional = employeeRepository.findById(id);
+        if(optional.isPresent()){
+            EmployeeResponseDTO res = new EmployeeResponseDTO();
+            BeanUtils.copyProperties(optional.get(),res);
+            return res;
+        }
+        return null;
+    }
+
+    @Override
+    public EmployeeResponseDTO updateEmployeeById(long id,EmployeeRequestDTO employeeRequestDTO) {
+        Optional<Employee> optional = employeeRepository.findById(id);
+        if(optional.isPresent()){
+            Employee emp = optional.get();
+            emp.setDepartmentName(employeeRequestDTO.getDepartmentName());
+            emp.setName(employeeRequestDTO.getName());
+           Employee savedEmp =  employeeRepository.save(emp);
+           EmployeeResponseDTO res = new EmployeeResponseDTO();
+           BeanUtils.copyProperties(savedEmp,res);
+           return res;
+        }
+        return null;
+    }
+
+    @Override
+    public EmployeeResponseDTO deleteEmployeeById(long id) {
+        Optional<Employee> optional = employeeRepository.findById(id);
+        if(optional.isPresent()){
+            Employee emp = optional.get();
+            employeeRepository.delete(emp);
+            EmployeeResponseDTO res = new EmployeeResponseDTO();
+            BeanUtils.copyProperties(emp,res);
+            return res;
+        }
         return null;
     }
 }
