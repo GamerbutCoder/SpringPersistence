@@ -1,9 +1,10 @@
-package com.quinbay.SpringPersistence.service;
+package com.quinbay.SpringPersistence.service.impl;
 
 import com.quinbay.SpringPersistence.dto.EmployeeRequestDTO;
 import com.quinbay.SpringPersistence.dto.EmployeeResponseDTO;
 import com.quinbay.SpringPersistence.entity.Employee;
 import com.quinbay.SpringPersistence.repository.EmployeeRepository;
+import com.quinbay.SpringPersistence.service.EmployeeService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class EmployeeServiceIMPL implements  EmployeeService{
+public class EmployeeServiceIMPL implements EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
     @Override
