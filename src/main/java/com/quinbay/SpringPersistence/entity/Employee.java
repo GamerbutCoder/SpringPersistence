@@ -1,14 +1,12 @@
 package com.quinbay.SpringPersistence.entity;
 
+import com.quinbay.SpringPersistence.dto.DepartmentRequestDTO;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -20,5 +18,7 @@ public class Employee {
 
     private String name;
 
-    private Long deptId;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Department department;
+
 }

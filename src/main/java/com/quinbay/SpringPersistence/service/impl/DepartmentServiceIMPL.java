@@ -16,7 +16,7 @@ public class DepartmentServiceIMPL implements DepartmentService {
     @Autowired
     private DepartmentRepository departmentRepository;
     @Override
-    public DepartmentResponseDTO createEmployee(DepartmentRequestDTO req) {
+    public DepartmentResponseDTO createDepartment(DepartmentRequestDTO req) {
         Department dept = new Department();
         BeanUtils.copyProperties(req,dept);
         Department savedDept= departmentRepository.save(dept);

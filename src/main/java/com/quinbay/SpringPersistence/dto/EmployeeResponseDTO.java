@@ -1,11 +1,19 @@
 package com.quinbay.SpringPersistence.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.quinbay.SpringPersistence.entity.Department;
+import lombok.Data;
+import org.springframework.beans.BeanUtils;
 
-@Getter
-@Setter
+@Data
 public class EmployeeResponseDTO {
-    private Long id,deptId;
+    private Long id;
     private String name;
+    private DepartmentResponseDTO department;
+
+    public void setDeptFromEntity(Department dept){
+        Department d = new Department();
+        d.setDepartmentName(dept.getDepartmentName());
+        d.setId(dept.getId());
+        BeanUtils.copyProperties(d,this.department);
+    }
 }

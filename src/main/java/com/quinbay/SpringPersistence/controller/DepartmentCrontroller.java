@@ -8,14 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/department")
+@RequestMapping("/department")
 public class DepartmentCrontroller {
     @Autowired
     private DepartmentService departmentService;
 
-    @PostMapping(path = "/")
+    @PostMapping(path = "")
     public DepartmentResponseDTO addDepartment(DepartmentRequestDTO request){
-        return null;
+        return departmentService.createDepartment(request);
     }
 
     @GetMapping(path = "/{id}")

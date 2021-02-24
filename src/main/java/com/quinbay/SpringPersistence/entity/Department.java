@@ -18,5 +18,5 @@ public class Department {
     @GenericGenerator(name="department_id_seq",strategy = "increment")
     @GeneratedValue(generator = "department_id_seq",strategy = GenerationType.AUTO)
     private Long id;
-    private String deptName;
+    private String departmentName;
 }

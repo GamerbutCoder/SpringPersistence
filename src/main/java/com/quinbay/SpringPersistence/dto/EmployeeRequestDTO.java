@@ -1,11 +1,12 @@
 package com.quinbay.SpringPersistence.dto;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 public class EmployeeRequestDTO {
-    private Long id,deptId;
+    private Long id;
     private String name;
+    private DepartmentRequestDTO department;
 }
