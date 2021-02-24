@@ -6,4 +6,5 @@ import com.quinbay.SpringPersistence.dto.DepartmentResponseDTO;
 
 public interface DepartmentService {
     DepartmentResponseDTO updateDept(Long id,DepartmentRequestDTO requestDTO);
+    DepartmentResponseDTO createDepartment(DepartmentRequestDTO requestDTO);
 }

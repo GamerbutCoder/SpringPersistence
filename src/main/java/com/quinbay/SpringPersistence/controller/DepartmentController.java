@@ -13,6 +13,11 @@ public class DepartmentController {
 
     @Autowired
     private DepartmentService departmentService;
+
+    @PostMapping(path="/")
+    public DepartmentResponseDTO addDepartment(@RequestBody DepartmentRequestDTO requestDTO){
+        return departmentService.createDepartment(requestDTO);
+    }
     @PutMapping(path = "/{id}")
     public DepartmentResponseDTO updateDept(@PathVariable Long id, @RequestBody DepartmentRequestDTO requestDTO){
         return departmentService.updateDept(id,requestDTO);

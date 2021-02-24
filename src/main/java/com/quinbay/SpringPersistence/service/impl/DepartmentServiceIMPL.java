@@ -24,6 +24,16 @@ public class DepartmentServiceIMPL implements DepartmentService {
     private EmployeeRepository employeeRepository;
 
     @Override
+    public DepartmentResponseDTO createDepartment(DepartmentRequestDTO requestDTO) {
+        Department dept = new Department();
+        BeanUtils.copyProperties(requestDTO,dept);
+        departmentRepository.save(dept);
+        DepartmentResponseDTO res = new DepartmentResponseDTO();
+        BeanUtils.copyProperties(dept,res);
+        return res;
+    }
+
+    @Override
     @Transactional
     public DepartmentResponseDTO updateDept(Long id,DepartmentRequestDTO requestDTO) {
         Department department = departmentRepository.findById(requestDTO.getId()).get();

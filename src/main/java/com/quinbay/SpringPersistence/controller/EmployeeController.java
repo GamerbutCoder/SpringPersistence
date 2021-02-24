@@ -20,4 +20,14 @@ public class EmployeeController {
         return employeeService.createEmployee(req);
     }
 
+    @GetMapping(path="/{id}")
+    public EmployeeResonseDTO getEmployee(@PathVariable Long id){
+        return employeeService.getEmployeeById(id);
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public boolean delete(@PathVariable Long id){
+        return employeeService.deleteById(id);
+    }
+
 }
