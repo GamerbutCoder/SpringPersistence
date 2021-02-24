@@ -6,6 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class EmployeeRequestDTO {
-    private Long id;
-    private String name,departmentName;
+    private Long id,deptId;
+    private String name;
 }

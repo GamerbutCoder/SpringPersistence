@@ -41,7 +41,8 @@ public class EmployeeServiceIMPL implements EmployeeService {
         Optional<Employee> optional = employeeRepository.findById(id);
         if(optional.isPresent()){
             Employee emp = optional.get();
-            emp.setDepartmentName(employeeRequestDTO.getDepartmentName());
+
+            emp.setDeptId(employeeRequestDTO.getDeptId());
             emp.setName(employeeRequestDTO.getName());
            Employee savedEmp =  employeeRepository.save(emp);
            EmployeeResponseDTO res = new EmployeeResponseDTO();
