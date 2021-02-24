@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringPersistenceApplication {
 
 	public static void main(String[] args) {
+		System.out.println("started");
 		SpringApplication.run(SpringPersistenceApplication.class, args);
 	}
 
