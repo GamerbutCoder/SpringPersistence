@@ -30,4 +30,9 @@ public class EmployeeController {
         return employeeService.deleteById(id);
     }
 
+    @GetMapping(path = "/mostExperienced")
+    public EmployeeResonseDTO mostExperienced(){
+        return employeeService.getMaxExperiencedEmployee();
+    }
+
 }

@@ -15,7 +15,7 @@ public class Employee {
     private Long id;
     private String code;
     private String name;
-
+    private Long yearsOfExperience;
     @ManyToOne(cascade = CascadeType.ALL)
     private Department department;
 }

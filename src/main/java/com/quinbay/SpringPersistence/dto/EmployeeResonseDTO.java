@@ -8,6 +8,7 @@ public class EmployeeResonseDTO {
     private Long id;
     private String name;
     private String code;
+    private Long yearsOfExperience;
     private DepartmentResponseDTO department;
 
     public void setDepartmentFromEntity(Department department){
@@ -16,4 +17,5 @@ public class EmployeeResonseDTO {
         res.setName(department.getName());
         this.department = res;
     }
+
 }

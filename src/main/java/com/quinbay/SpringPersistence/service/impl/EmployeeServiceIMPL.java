@@ -62,8 +62,20 @@ public class EmployeeServiceIMPL implements EmployeeService {
         Optional<Employee> optional = employeeRepository.findById(id);
         if(optional.isPresent()){
             employeeRepository.deleteById(id);
-            return true;
         }
         return true;
+    }
+
+    @Override
+    public EmployeeResonseDTO getMaxExperiencedEmployee() {
+        Employee emp = employeeRepository.getMaxExperiencedEmployee();
+        if(emp!=null){
+            EmployeeResonseDTO res = new EmployeeResonseDTO();
+            BeanUtils.copyProperties(emp,res);
+            System.out.println(res.toString());
+            res.setDepartmentFromEntity(emp.getDepartment());
+            return res;
+        }
+        return null;
     }
 }
